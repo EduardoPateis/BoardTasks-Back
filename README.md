@@ -21,6 +21,22 @@ Criando o BackEnd de uma aplicação gestora de tarefas
 	
 	npm install y
 ```
+#### Preparando a documentação e os tratamentos para o banco MongoDB
+
+```
+	npm i swagger-autogen swagger-ui-express mongoose mongoose-to-swagger cors dotenv
+
+```
+
+### Adicionado no _**app.js**_:
+
+```
+const cors = require('cors');
+require('dotenv').config();
+app.use(cors());
+```
+
+
 
 ### Autor:
 
