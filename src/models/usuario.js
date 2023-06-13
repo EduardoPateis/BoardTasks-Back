@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const validador = require('validator');
+const validator = require('validator');
 
 const esquema = new mongoose.Schema(
     {
@@ -14,7 +14,7 @@ const esquema = new mongoose.Schema(
             lowercase: true,
             index: true,
             validate: {
-                validador: (valorDigitado) => { return validador.isEmail(valorDigitado) },
+                validator: (valorDigitado) => { return validator.isEmail(valorDigitado) },
                 message: 'inválido!'
             }
         },
