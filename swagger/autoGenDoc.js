@@ -1,18 +1,18 @@
 const mongooseToSwagger = require('mongoose-to-swagger');
-//const EsquemaTarefa = require('../src/models/tarefa.js');
-//const EsquemaUsuario = require('../src/models/usuario.js');
+const EsquemaTarefa = require('../src/models/tarefa.js');
+const EsquemaUsuario = require('../src/models/usuario.js');
 const swaggerAutogen = require('swagger-autogen')({
     openapi: '3.0.0',
     language: 'pt-BR',
 });
 
 let outputFile = './swagger_output.json';
-let endpointsFiles = ['../index.js', '../src/router.js' ];
+let endpointsFiles = ['../index.js', '../src/routes.js'];
 
 
 if(String(process.env.OS).toLocaleLowerCase().includes("windows")){
     outputFile = './swagger/swagger_output.json';
-    endpointsFiles = ['./index.js'];
+    endpointsFiles = ['./index.js', './src/routes.js'];
 }
 
 
@@ -32,14 +32,14 @@ let doc = {
             description: "Servidor de produção."
         }
     ],
-    //consumes: ['application/json'],
-    //produces: ['application/json'],
-    //components: {
-    //    schemas: {
-    //        Usuario: mongooseToSwagger(EsquemaUsuario),
-    //        Tarefa: mongooseToSwagger(EsquemaTarefa)
-    //    }
-    //}
+    consumes: ['application/json'],
+    produces: ['application/json'],
+    components: {
+        schemas: {
+            Usuario: mongooseToSwagger(EsquemaUsuario),
+            Tarefa: mongooseToSwagger(EsquemaTarefa)
+        }
+    }
 }
 
 
