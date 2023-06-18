@@ -11,11 +11,7 @@ on:
     branches:
       - main
 
-
-
 jobs:
-
-
 
   job1:
     name: CI - Build e criação do artefato
