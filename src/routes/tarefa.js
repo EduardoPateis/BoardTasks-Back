@@ -75,6 +75,7 @@ router.get('/obter/usuario', authUser, conectarBancoDados, async function (req, 
 router.delete('/deletar/:id', authUser, conectarBancoDados, async function (req, res) {
   try {
     // #swagger.tags = ['Tarefa']
+    // #swagger.description = "Endpoint para deletar uma tarefas do usuario logado."
     const idTarefa = req.params.id;
     const usuarioLogado = req.usuarioJwt.id;
 
